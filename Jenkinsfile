@@ -31,8 +31,8 @@ pipeline {
             steps{
                 script {
                     echo 'build the image' 
-                    dockerImage = docker.build imageName
-                    echo dockerImage + 'image built'
+                    dockerImage = docker.build("${env.imageName}:${env.BUILD_ID}")
+                    echo 'image built'
                 }
             }
             }
@@ -41,7 +41,7 @@ pipeline {
                 script {
                     echo 'push the image to docker hub' 
                     docker.withRegistry('',registryCredential){
-                        dockerImage.push("$BUILD_NUMBER")
+                        dockerImage.push("${env.BUILD_ID}")
                     }
                 }
             }
