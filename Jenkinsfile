@@ -46,7 +46,7 @@ pipeline {
                 }
             }
         }     
-         stage('deploy to k8s') {
+        stage('deploy to k8s') {
              agent {
                 docker { 
                     image 'google/cloud-sdk:latest'
@@ -54,11 +54,9 @@ pipeline {
                     reuseNode true
                         }
                     }
-            //steps {
-             //}
         }     
         stage('Remove local docker image') {
-            steps{
+            //steps{
                 //sh "docker rmi $imageName:latest"
                 //sh "docker rmi $imageName:$BUILD_NUMBER"
             }
