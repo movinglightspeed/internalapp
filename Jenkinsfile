@@ -57,7 +57,7 @@ pipeline {
             steps {
                 echo 'Get cluster credentials'
                 sh 'gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project roidtc-may2022-u306'
-                sh "kubectl set image deployment/ui-svc-deployment ui-svc-container=${env.imageName}:${env.BUILD_ID}"
+                sh "kubectl set image deployment/events-internal events-internal=${env.imageName}:${env.BUILD_ID}"
             }
         }     
         stage('Remove local docker image') {
