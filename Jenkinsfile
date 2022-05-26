@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Retrieve source from github. run npm install and npm test' 
                 git branch: 'master',
-                    url: 'https://github.com/stanleys/internalapp.git'
+                    url: 'https://github.com/movinglightspeed/internalapp.git'
                 echo 'repo files'
                 sh 'ls -a'
                 echo 'install dependencies'
