@@ -46,7 +46,7 @@ pipeline {
                 }
             }
         }     
-        stages('deploy to k8s') {
+        stage('deploy to k8s') {
              agent {
                 docker { 
                     image 'google/cloud-sdk:latest'
@@ -60,7 +60,7 @@ pipeline {
                 sh "kubectl set image deployment/ui-svc-deployment ui-svc-container=${env.imageName}:${env.BUILD_ID}"
             }
         }     
-        stages('Remove local docker image') {
+        stage('Remove local docker image') {
             steps{
                 echo "pending"
                 //sh "docker rmi $imageName:latest"
